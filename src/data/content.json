@@ -1,0 +1,233 @@
+{
+  "general": {
+    "title": "BK21 Ewha TRUE-AI",
+    "footerText": "© 2025 BK21 Ewha TRUEAI Education Research Group. All rights reserved."
+  },
+  "menu": [
+    {
+      "id": "intro",
+      "label": "교육연구단 소개",
+      "path": "/intro",
+      "subItems": [
+        {
+          "id": "greeting",
+          "label": "교육연구단장 인사말",
+          "path": "/intro/greeting"
+        },
+        {
+          "id": "vision",
+          "label": "교육연구단 비전 및 목표",
+          "path": "/intro/vision"
+        }
+      ]
+    },
+    {
+      "id": "composition",
+      "label": "교육연구단 구성",
+      "path": "/composition",
+      "subItems": [
+        {
+          "id": "professors",
+          "label": "참여교수",
+          "path": "/composition/professors"
+        },
+        {
+          "id": "personnel",
+          "label": "참여인력",
+          "path": "/composition/personnel"
+        }
+      ]
+    },
+    {
+      "id": "organization",
+      "label": "운영 조직",
+      "path": "/organization",
+      "subItems": [
+        {
+          "id": "edu-committee",
+          "label": "교육분과위원회",
+          "path": "/organization/edu-committee"
+        },
+        {
+          "id": "research-committee",
+          "label": "연구분과위원회",
+          "path": "/organization/research-committee"
+        },
+        {
+          "id": "industry-committee",
+          "label": "산학분과위원회",
+          "path": "/organization/industry-committee"
+        },
+        {
+          "id": "steering-committee",
+          "label": "운영 위원회",
+          "path": "/organization/steering-committee"
+        }
+      ]
+    },
+    {
+      "id": "news",
+      "label": "소식",
+      "path": "/news",
+      "subItems": [
+        {
+          "id": "achievements",
+          "label": "교육연구단 성과",
+          "path": "/news/achievements"
+        },
+        {
+          "id": "notices",
+          "label": "소식 (공지사항, 세미나 등)",
+          "path": "/news/notices"
+        }
+      ]
+    }
+  ],
+  "pages": {
+    "greeting": {
+      "title": "교육연구단장 인사말",
+      "content": "<h2>고신뢰 고효율 인공지능 교육연구단 (TRUE-AI)</h2><p>본 교육연구단은 <strong>'Trustworthy and Resource-efficient Unified Evolving AI (TRUE-AI)'</strong>라는 비전 아래, 신뢰도 높고 효율적인 인공지능 연구를 선도할 핵심 인재를 양성하고자 합니다.</p><p>초거대 AI 모델의 등장으로 연산 자원 소모가 급증하고, AI 모델의 신뢰성 문제가 대두되는 현 시점에서, 우리는 <strong>'효율적 AI'</strong>와 <strong>'보안 AI'</strong>를 양대 축으로 하여 기술적 한계를 극복하고 사회적 책임을 다하는 AI 기술을 연구합니다.</p><p>이화여자대학교 인공지능대학의 우수한 교육·연구 인프라를 바탕으로, 세계적 수준의 연구 성과를 창출하고 산업계가 필요로 하는 실전형 인재를 배출하여 국가 경쟁력 제고에 기여하겠습니다.</p><p class='mt-4 text-right font-bold'>교육연구단장 양대헌</p>"
+    },
+    "vision": {
+      "title": "비전 및 목표",
+      "content": "<h2>비전</h2><p class='text-xl text-ewha-green font-bold mb-4'>TRUE-AI: Trustworthy and Resource-efficient Unified Evolving AI</p><p>높은 신뢰성과 자원 효율성을 갖춘 AI 모델 개발 및 통합적·진화형 AI 생태계 구축</p><hr class='my-8' /><h2>교육 목표</h2><ul class='list-disc pl-5 space-y-2'><li><strong>효율적 AI 트랙:</strong> 제약된 환경(온디바이스, 엣지 등)에서 고성능을 내는 경량화·최적화된 AI 모델 설계 능력 배양</li><li><strong>보안 AI 트랙:</strong> 적대적 공격, 프라이버시 침해 등 AI 보안 위협에 대응하고 신뢰성을 확보하는 기술 역량 강화</li><li><strong>융합형 인재 양성:</strong> 산학협력 프로젝트와 실무 중심 교육을 통해 산업 수요에 부합하는 문제 해결 능력 함양</li></ul><hr class='my-8' /><h2>연구 목표</h2><ul class='list-disc pl-5 space-y-2'><li><strong>거대 모델 효율화:</strong> 학습 데이터 정제, 파인튜닝 최적화, 멀티모달 학습 효율성 증대</li><li><strong>엣지/온디바이스 AI:</strong> 분산 학습, 경량화, 저전력 구동 기술 연구</li><li><strong>AI 시스템 최적화:</strong> AI 전용 하드웨어(NPU) 및 시스템 소프트웨어 최적화</li><li><strong>AI 보안 및 프라이버시:</strong> 적대적 공격 방어, 차분 프라이버시, 데이터 합성 기술 연구</li></ul>"
+    },
+    "professors": {
+      "title": "참여교수",
+      "list": [
+        {
+          "name": "양대헌 (DaeHun Nyang)",
+          "role": "교육연구단장 / 교수",
+          "research": "Network Security, AI Security, Intrusion Detection",
+          "email": "nyang@ewha.ac.kr"
+        },
+        {
+          "name": "김종길 (Jongkil Kim)",
+          "role": "교수",
+          "research": "Information Security, AI-based IoT Security, Cryptography",
+          "email": ""
+        },
+        {
+          "name": "배호 (Ho Bae)",
+          "role": "교수",
+          "research": "Machine Learning Security, Adversarial Attacks, Model Poisoning",
+          "email": ""
+        },
+        {
+          "name": "오세은 (Se Eun Oh)",
+          "role": "교수",
+          "research": "Deep Learning Security, Network Traffic Analysis, Malware Detection",
+          "email": ""
+        },
+        {
+          "name": "노준혁 (Junhyug Noh)",
+          "role": "교수",
+          "research": "Visual Information Processing, Weakly/Semi-supervised Learning",
+          "email": ""
+        },
+        {
+          "name": "민동보 (Dongbo Min)",
+          "role": "교수",
+          "research": "Computer Vision, 3D Scene Understanding, Model Compression",
+          "email": ""
+        },
+        {
+          "name": "반효경 (Hyokyung Bahn)",
+          "role": "교수",
+          "research": "System Software, Storage Systems, Performance Evaluation",
+          "email": ""
+        },
+        {
+          "name": "윤명국 (Myung Kuk Yoon)",
+          "role": "교수",
+          "research": "Computer Architecture, GPU/NPU Optimization, Parallel Programming",
+          "email": ""
+        },
+        {
+          "name": "이지영 (Jiyoung Lee)",
+          "role": "교수",
+          "research": "Multimodal AI, Generative Models, Speech Systems",
+          "email": ""
+        },
+        {
+          "name": "이형준 (Hyungjune Lee)",
+          "role": "교수",
+          "research": "Edge Computing, Federated Learning, Mobile Systems",
+          "email": ""
+        },
+        {
+          "name": "오유란 (Uran Oh)",
+          "role": "교수",
+          "research": "HCI, Intelligent Interfaces, Accessibility",
+          "email": ""
+        },
+        {
+          "name": "황의원 (Uiwon Hwang)",
+          "role": "교수",
+          "research": "Generative AI, Data Imputation, Domain Adaptation",
+          "email": ""
+        }
+      ]
+    },
+    "personnel": {
+      "title": "참여인력",
+      "content": "<p>본 교육연구단에는 석사, 박사, 석박사 통합과정의 우수한 대학원생들이 참여하고 있습니다.</p><p>(상세 명단은 추후 업데이트 예정)</p>"
+    },
+    "committees": {
+      "edu": {
+        "title": "교육분과위원회",
+        "content": "<h2>교육분과위원회</h2><p>교육과정 개발 및 운영, 산학협력 교육 프로그램 기획 등을 담당합니다.</p>"
+      },
+      "research": {
+        "title": "연구분과위원회",
+        "content": "<h2>연구분과위원회</h2><p>국제 공동 연구 활성화, 우수 연구 성과 창출 지원 등을 담당합니다.</p>"
+      },
+      "industry": {
+        "title": "산학분과위원회",
+        "content": "<h2>산학분과위원회</h2><p>산업체 협력 네트워크 구축, 인턴십 및 취업 연계 등을 담당합니다.</p>"
+      },
+      "steering": {
+        "title": "운영 위원회",
+        "content": "<h2>운영 위원회</h2><p>교육연구단의 주요 의사결정 및 운영 전반을 총괄합니다.</p>"
+      }
+    }
+  },
+  "news": [
+    {
+      "id": 1,
+      "category": "achievement",
+      "title": "NDSS 2025 논문 채택 (Sian Kim et al.)",
+      "date": "2025-02-01",
+      "summary": "Sian Kim et al., 'SketchFeature: High-Quality Per-Flow Feature Extractor Towards Security-Aware Data Plane', NDSS 2025."
+    },
+    {
+      "id": 2,
+      "category": "achievement",
+      "title": "NDSS 2023 논문 채택 (Sian Kim et al.)",
+      "date": "2023-02-01",
+      "summary": "Sian Kim et al., 'A Robust Counting Sketch for Data Plane Intrusion Detection', NDSS 2023."
+    },
+    {
+      "id": 3,
+      "category": "achievement",
+      "title": "ACM CCS 2022 논문 채택 (Changhun Jung et al.)",
+      "date": "2022-11-01",
+      "summary": "Changhun Jung et al., 'A Scalable and Dynamic ACL System for In-Network Defense', ACM CCS 2022."
+    },
+    {
+      "id": 4,
+      "category": "achievement",
+      "title": "IEEE INFOCOM 2020 논문 채택 (RhongHo Jang et al.)",
+      "date": "2020-05-01",
+      "summary": "RhongHo Jang et al., 'SketchFlow: Per-Flow Systematic Sampling Using Sketch Saturation Event', IEEE INFOCOM 2020."
+    },
+    {
+      "id": 5,
+      "category": "achievement",
+      "title": "IEEE Transactions on Computers 논문 게재 (Sungha Baek et al.)",
+      "date": "2021-10-01",
+      "summary": "Sungha Baek et al., 'SSD-assisted ransomware detection and data recovery techniques', IEEE TC, 2021."
+    }
+  ],
+  "labs": []
+}

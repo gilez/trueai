@@ -1,0 +1,219 @@
+[
+    {
+        "id": 1,
+        "name": "Daehun Nyang",
+        "role": "Director / Professor",
+        "department": "School of AI & Software (Cybersecurity)",
+        "researchAreas": [
+            "AI Security",
+            "Network Security",
+            "Intrusion Detection"
+        ],
+        "email": "nyang@ewha.ac.kr",
+        "image": "/assets/nyangportrait.jpeg",
+        "achievements": [
+            "SketchFeature: High-Quality Per-Flow Feature Extractor (NDSS 2025)",
+            "A Robust Counting Sketch for Data Plane Intrusion Detection (NDSS 2023)",
+            "A Scalable and Dynamic ACL System for In-Network Defense (ACM CCS 2022)",
+            "SketchFlow: Per-Flow Systematic Sampling Using Sketch Saturation Event (IEEE INFOCOM 2020)"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Dongbo Min",
+        "role": "Professor",
+        "department": "School of AI & Software (Computer Science)",
+        "researchAreas": [
+            "Computer Vision",
+            "Deep Learning",
+            "3D Scene Understanding"
+        ],
+        "email": "dbmin@ewha.ac.kr",
+        "image": "/assets/mdb.jpg",
+        "achievements": [
+            "14 papers published at top conferences including CVPR, ICCV, ECCV, NeurIPS",
+            "15 SCI journal publications (including 7 in top 3% journals)",
+            "Research on 3D scene understanding and model compression for autonomous driving"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Hyokyung Bahn",
+        "role": "Professor",
+        "department": "School of AI & Software (Computer Science)",
+        "researchAreas": [
+            "System Software",
+            "Storage Systems",
+            "Operating Systems"
+        ],
+        "email": "hkbahn@ewha.ac.kr",
+        "image": "/assets/bhk.jpg",
+        "achievements": [
+            "Over 100 papers published in prestigious journals and conferences including IEEE TC, TKDE, USENIX FAST",
+            "First Korean recipient of USENIX Best Paper Award",
+            "Popular Operating Systems course on KOCW (over 500,000 views)"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Hyungjune Lee",
+        "role": "Professor",
+        "department": "School of AI & Software (Computer Science)",
+        "researchAreas": [
+            "Edge Computing",
+            "IoT",
+            "Distributed Learning"
+        ],
+        "email": "hyungjune.lee@ewha.ac.kr",
+        "image": "/assets/lhj.png",
+        "achievements": [
+            "Papers presented at top conferences including ECCV, PerCom, INFOCOM",
+            "Publications in IEEE Internet of Things Journal (top 5%)",
+            "Research on distributed learning and lightweight multimodal learning across edge devices"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Myung Kuk Yoon",
+        "role": "Professor",
+        "department": "School of AI & Software (Computer Science)",
+        "researchAreas": [
+            "Computer Architecture",
+            "GPU Architecture",
+            "AI Accelerators"
+        ],
+        "email": "mkyoon@ewha.ac.kr",
+        "image": "/assets/ymk.jpg",
+        "achievements": [
+            "Papers presented at top conferences including ISCA, NeurIPS, AAAI",
+            "Research on GPU and machine learning accelerator architecture optimization",
+            "High-performance AI software optimization utilizing heterogeneous computing resources"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Uiwon Hwang",
+        "role": "Professor",
+        "department": "School of AI & Software (Computer Science)",
+        "researchAreas": [
+            "Generative AI",
+            "Trustworthy AI",
+            "Multimodal Learning"
+        ],
+        "email": "uiwon.hwang@ewha.ac.kr",
+        "image": "/assets/hew.jpg",
+        "achievements": [
+            "Papers published at top conferences and journals including ICML, ICLR, ECCV, IJCV",
+            "Research on generative AI-based biomedical foundation models",
+            "Research on general-purpose AI to overcome real-world constraints"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Junhyuk Noh",
+        "role": "Professor",
+        "department": "School of AI & Software (AI Convergence)",
+        "researchAreas": [
+            "Machine Learning",
+            "Weakly Supervised Learning",
+            "Active Learning"
+        ],
+        "email": "jhnoh@ewha.ac.kr",
+        "image": "/assets/njh.jpg",
+        "achievements": [
+            "Research on weakly supervised/active learning/domain adaptation algorithms",
+            "Technical advisor for multiple startups (WordBricks, Espressoto, etc.)",
+            "Teaching Advanced Efficient Learning and Pattern Recognition"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Jiyoung Lee",
+        "role": "Professor",
+        "department": "School of AI & Software (AI Convergence)",
+        "researchAreas": [
+            "Multimodal AI",
+            "Generative Models",
+            "Speech Processing"
+        ],
+        "email": "jylee@ewha.ac.kr",
+        "image": "/assets/ljy.jpeg",
+        "achievements": [
+            "Papers published at top conferences including CVPR, ICLR, ICCV, AAAI",
+            "Joint research with global tech companies including Microsoft and Adobe",
+            "Research on multimodal generative models and speech systems"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Uran Oh",
+        "role": "Professor",
+        "department": "School of AI & Software (AI Convergence)",
+        "researchAreas": [
+            "HCI",
+            "Intelligent Interface",
+            "Affective Computing"
+        ],
+        "email": "uran.oh@ewha.ac.kr",
+        "image": "/assets/our.jpg",
+        "achievements": [
+            "Papers published at top conferences including ACM CHI, WWW, IUI, UbiComp",
+            "Joint research with Google and international patent registration",
+            "Research on personalized smart interaction and multimodal input processing"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Jongkil Kim",
+        "role": "Professor",
+        "department": "School of AI & Software (Cybersecurity)",
+        "researchAreas": [
+            "Cryptography",
+            "Data Privacy",
+            "IoT Security"
+        ],
+        "email": "jongkil@ewha.ac.kr",
+        "image": "/assets/kimjongkil.jpg",
+        "achievements": [
+            "Papers presented at top security conferences including ASIACCS, ESORICS",
+            "Research on zero-knowledge proofs and encryption for data privacy protection",
+            "Research on AI-based IoT security and next-generation security technologies"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Ho Bae",
+        "role": "Professor",
+        "department": "School of AI & Software (Cybersecurity)",
+        "researchAreas": [
+            "AI Security",
+            "Adversarial Machine Learning",
+            "Privacy"
+        ],
+        "email": "hobae@ewha.ac.kr",
+        "image": "/assets/baeho.jpg",
+        "achievements": [
+            "15 papers presented at top conferences including ICLR, ESORICS, RAID",
+            "Research on LLM model attacks, code security, and model poisoning defense",
+            "Teaching AI Convergence Security and Deep Learning Security"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Seeun Oh",
+        "role": "Professor",
+        "department": "School of AI & Software (Cybersecurity)",
+        "researchAreas": [
+            "Network Security",
+            "AI Privacy",
+            "Traffic Analysis"
+        ],
+        "email": "seeun.oh@ewha.ac.kr",
+        "image": "/assets/ose.jpeg",
+        "achievements": [
+            "Papers presented at top security conferences including IEEE S&P, PETS",
+            "Research on AI model-based network traffic analysis and defense techniques",
+            "Teaching Deep Learning Security and Advanced System Security"
+        ]
+    }
+]
