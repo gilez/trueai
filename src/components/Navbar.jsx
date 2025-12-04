@@ -63,10 +63,13 @@ const Navbar = ({ theme, toggleTheme }) => {
                         }`}
                 >
                     {/* Logo */}
-                    <Link to="/" className="flex items-center gap-2 z-50">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/20 text-primary">
-                            <GraduationCap size={20} />
-                        </div>
+                    <Link to="/" className="flex items-center gap-3 z-50">
+                        <img
+                            src={`${import.meta.env.BASE_URL}bk21-logo.png`}
+                            alt="BK21 Logo"
+                            className="h-8 w-auto object-contain brightness-0 dark:brightness-100 dark:invert opacity-80"
+                        />
+                        <div className="h-8 w-px bg-border"></div>
                         <span className="text-lg font-bold tracking-tight text-foreground">
                             Ewha<span className="text-primary"> TRUE-AI</span>
                         </span>
