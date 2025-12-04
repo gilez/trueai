@@ -67,7 +67,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                         <img
                             src={`${import.meta.env.BASE_URL}bk21-logo.png`}
                             alt="BK21 Logo"
-                            className="h-8 w-auto object-contain brightness-0 dark:brightness-100 dark:invert opacity-80"
+                            className="h-8 w-auto object-contain dark:invert dark:brightness-90"
                         />
                         <div className="h-8 w-px bg-border"></div>
                         <span className="text-lg font-bold tracking-tight text-foreground">
