@@ -67,7 +67,7 @@ const Home = () => {
                             <div className="relative w-full aspect-video overflow-hidden bg-muted">
                                 {news.image ? (
                                     <img
-                                        src={news.image}
+                                        src={`${import.meta.env.BASE_URL}${news.image.replace(/^\//, '')}`}
                                         alt={news.title}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         onError={(e) => {

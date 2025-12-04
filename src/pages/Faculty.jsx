@@ -26,7 +26,7 @@ const Faculty = () => {
                             <div className="mb-6 flex items-center justify-center">
                                 <div className="h-32 w-32 rounded-full overflow-hidden border-4 border-primary/20 bg-white/5">
                                     <img
-                                        src={member.image || "/assets/professors/default.jpeg"}
+                                        src={`${import.meta.env.BASE_URL}${member.image?.replace(/^\//, '') || 'assets/professors/default.jpeg'}`}
                                         alt={member.name}
                                         className="w-full h-full object-cover"
                                     />

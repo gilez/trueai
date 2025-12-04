@@ -68,7 +68,7 @@ const NewsPage = () => {
                                 <div className="relative w-full aspect-video overflow-hidden bg-muted">
                                     {item.image ? (
                                         <img
-                                            src={item.image}
+                                            src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`}
                                             alt={item.title}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                             onError={(e) => {
