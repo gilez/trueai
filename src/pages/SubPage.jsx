@@ -24,7 +24,7 @@ const SubPage = ({ type }) => {
             <Section className="py-12">
                 {type === 'greeting' ? (
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-                        <div className="md:col-span-3">
+                        <div className="md:col-span-2">
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] group">
                                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500" />
                                 <img
@@ -34,11 +34,11 @@ const SubPage = ({ type }) => {
                                 />
                             </div>
                             <div className="mt-6 text-center">
-                                <h3 className="text-2xl font-bold">Prof. Daehun Nyang</h3>
-                                <p className="text-primary font-medium">Director</p>
+                                <h3 className="text-xl font-bold">Prof. Daehun Nyang</h3>
+                                <p className="text-primary font-medium text-sm">Director</p>
                             </div>
                         </div>
-                        <div className="md:col-span-9">
+                        <div className="md:col-span-10">
                             <Card className="p-8 md:p-12">
                                 <div className="prose prose-lg dark:prose-invert max-w-none whitespace-pre-line">
                                     {data.content}
