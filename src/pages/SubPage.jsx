@@ -28,7 +28,7 @@ const SubPage = ({ type }) => {
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] group">
                                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500" />
                                 <img
-                                    src={data.image}
+                                    src={`${import.meta.env.BASE_URL}${data.image?.replace(/^\//, '') || 'assets/nyangportrait.jpeg'}`}
                                     alt="Prof. Daehun Nyang"
                                     className="w-full h-full object-cover"
                                 />
