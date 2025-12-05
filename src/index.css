@@ -164,18 +164,30 @@ body {
 
 /* Utilities */
 @utility glass {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Light Mode Default */
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass {
+  /* Dark Mode Explicit */
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @utility glass-hover {
   transition: all 0.3s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
   }
+}
+
+.dark .glass-hover:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 @utility text-gradient {
