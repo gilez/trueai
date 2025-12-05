@@ -3,8 +3,8 @@
 
 :root {
   /* Light Mode (Default) */
-  --color-background: #ffffff;
-  --color-foreground: #171717;
+  --color-background: 255 255 255;
+  --color-foreground: 23 23 23;
 
   --color-primary: #10b981;
   /* Emerald 500 */
@@ -26,8 +26,8 @@
 
 .dark {
   /* Dark Mode */
-  --color-background: #0a0a0a;
-  --color-foreground: #ededed;
+  --color-background: 10 10 10;
+  --color-foreground: 237 237 237;
 
   --color-primary: #10b981;
   /* Emerald 500 */
