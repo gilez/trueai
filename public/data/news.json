@@ -1,14 +1,5 @@
 [
     {
-        "id": 1,
-        "title": "Graduate School Recruitment for Spring 2025",
-        "date": "2024-10-15",
-        "category": "notice",
-        "image": "/assets/news/recruitment.png",
-        "summary": "Ewha Womans University School of AI & Software is recruiting graduate students for Spring 2025. We welcome passionate students in AI and security fields.",
-        "content": "Please refer to the university website for detailed recruitment guidelines."
-    },
-    {
         "id": 2,
         "title": "TRUE-AI Research Group Launch",
         "date": "2025-09-01",
@@ -18,13 +9,13 @@
         "content": "This research group aims to cultivate core AI talent with reliability and efficiency."
     },
     {
-        "id": 3,
-        "title": "Prof. Nyang's Team Paper Accepted at NDSS 2025",
-        "date": "2025-01-20",
-        "category": "achievement",
-        "image": "/assets/news/ndss2025.png",
-        "summary": "Prof. Daehun Nyang's research team's 'SketchFeature' paper has been accepted at NDSS 2025, a top-tier security conference.",
-        "content": "This research proposes high-quality per-flow feature extraction technology, significantly improving the performance of security data planes."
+        "id": 5,
+        "title": "Industry-Academia Collaboration Project Presentation",
+        "date": "2025-06-15",
+        "category": "event",
+        "image": "/assets/news/collaboration.png",
+        "summary": "Final presentation of industry-academia collaboration projects conducted with Naver, Hyundai Motor, and others.",
+        "content": "You can see innovative results where students solved real-world industry problems."
     },
     {
         "id": 4,
@@ -36,12 +27,21 @@
         "content": "Date: March 25, 2025, 2:00 PM / Location: New Engineering Building B102"
     },
     {
-        "id": 5,
-        "title": "Industry-Academia Collaboration Project Presentation",
-        "date": "2025-06-15",
-        "category": "event",
-        "image": "/assets/news/collaboration.png",
-        "summary": "Final presentation of industry-academia collaboration projects conducted with Naver, Hyundai Motor, and others.",
-        "content": "You can see innovative results where students solved real-world industry problems."
+        "id": 3,
+        "title": "Prof. Nyang's Team Paper Accepted at NDSS 2025",
+        "date": "2025-01-20",
+        "category": "achievement",
+        "image": "/assets/news/ndss2025.png",
+        "summary": "Prof. Daehun Nyang's research team's 'SketchFeature' paper has been accepted at NDSS 2025, a top-tier security conference.",
+        "content": "This research proposes high-quality per-flow feature extraction technology, significantly improving the performance of security data planes."
+    },
+    {
+        "id": 1,
+        "title": "Graduate School Recruitment for Spring 2025",
+        "date": "2024-10-15",
+        "category": "notice",
+        "image": "/assets/news/recruitment.png",
+        "summary": "Ewha Womans University School of AI & Software is recruiting graduate students for Spring 2025. We welcome passionate students in AI and security fields.",
+        "content": "Please refer to the university website for detailed recruitment guidelines."
     }
 ]
