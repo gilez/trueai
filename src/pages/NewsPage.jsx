@@ -1,12 +1,33 @@
-import React, { useState } from 'react';
-import { Calendar, Award, Megaphone, Filter } from 'lucide-react';
-import newsData from '../data/news.json';
+import React, { useState, useEffect } from 'react';
+import { Calendar, Award, Megaphone, Filter, Loader2 } from 'lucide-react';
 import Hero from '../components/Hero';
 import Section from '../components/Section';
 import Card from '../components/Card';
 
 const NewsPage = () => {
     const [filter, setFilter] = useState('all');
+    const [newsData, setNewsData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchNews = async () => {
+            try {
+                // Add timestamp to prevent caching
+                const response = await fetch(`${import.meta.env.BASE_URL}data/news.json?t=${new Date().getTime()}`);
+                if (!response.ok) throw new Error('Failed to fetch news');
+                const data = await response.json();
+                // Sort by date descending
+                const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setNewsData(sortedData);
+            } catch (error) {
+                console.error('Error fetching news:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchNews();
+    }, []);
 
     // Normalize categories for filtering
     const newsItems = newsData.map(item => ({
@@ -57,7 +78,11 @@ const NewsPage = () => {
 
                 {/* News Grid */}
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {filteredNews.length > 0 ? (
+                    {loading ? (
+                        <div className="col-span-full flex justify-center py-20">
+                            <Loader2 className="h-10 w-10 animate-spin text-primary" />
+                        </div>
+                    ) : filteredNews.length > 0 ? (
                         filteredNews.map((item, index) => (
                             <Card
                                 key={item.id}

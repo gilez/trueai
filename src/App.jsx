@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -7,20 +7,27 @@ import NewsPage from './pages/NewsPage';
 import Faculty from './pages/Faculty';
 import Research from './pages/Research';
 import SubPage from './pages/SubPage';
+import Admin from './pages/Admin';
 
 function App() {
-  // Default to dark mode
-  const [theme, setTheme] = useState('dark');
+  // Default to dark mode, or load from localStorage
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'dark';
+    }
+    return 'dark';
+  });
   const location = useLocation();
 
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
 
   // Scroll to top on route change
@@ -34,11 +41,12 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about/greeting" element={<SubPage type="greeting" />} />
-          <Route path="/about/vision" element={<SubPage type="vision" />} />
+          <Route path="/about" element={<Navigate to="/about/greeting" replace />} />
+          <Route path="/about/:type" element={<SubPage />} />
           <Route path="/research" element={<Research />} />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/news" element={<NewsPage />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <Footer />
