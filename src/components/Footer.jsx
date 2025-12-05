@@ -3,7 +3,7 @@ import { GraduationCap, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="border-t border-white/10 bg-black py-12 text-sm text-muted-foreground">
+        <footer className="border-t border-white/10 bg-black py-12 text-sm text-gray-400">
             <div className="container-custom">
                 <div className="grid gap-8 md:grid-cols-4">
                     {/* Brand */}
