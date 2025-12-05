@@ -1,9 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Section from '../components/Section';
 import Card from '../components/Card';
 import { contentData } from '../data/bk21Data';
 
-const SubPage = ({ type }) => {
+const SubPage = () => {
+    const { type } = useParams();
     const data = type === 'greeting' ? contentData.about.greeting : contentData.about.vision;
 
     if (!data) return <div>Loading...</div>;

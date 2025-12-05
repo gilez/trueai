@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit, Trash2, Save, X, Loader2, Lock, Github } from 'lucide-react';
+import { Plus, Edit, Trash2, Save, X, Loader2, Lock, Github, Upload } from 'lucide-react';
 import Section from '../components/Section';
 import Card from '../components/Card';
 
@@ -16,6 +16,7 @@ const Admin = () => {
     const [showTokenModal, setShowTokenModal] = useState(false);
     const [pendingAction, setPendingAction] = useState(null); // { type: 'save' | 'delete', data: ... }
     const [statusMsg, setStatusMsg] = useState('');
+    const [uploading, setUploading] = useState(false);
 
     useEffect(() => {
         fetchNews();
@@ -37,7 +38,7 @@ const Admin = () => {
 
     const handleAddNew = () => {
         setEditingItem({
-            id: Date.now(), // Temporary ID
+            id: Date.now(),
             title: '',
             date: new Date().toISOString().split('T')[0],
             category: 'notice',
@@ -64,8 +65,61 @@ const Admin = () => {
         setShowTokenModal(true);
     };
 
+    const handleImageUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // We need a token to upload images too. 
+        // If token is not set, we prompt for it.
+        if (!token) {
+            alert("Please enter your GitHub Token in the Security Check modal first (try saving or deleting to open it), or manually enter it here.");
+            // Ideally we'd open a token modal for upload, but for simplicity let's ask user to ensure they have a token ready or use the save flow.
+            // Actually, let's just prompt for it right here if missing.
+            const inputToken = prompt("Enter GitHub Token to upload image:");
+            if (!inputToken) return;
+            setToken(inputToken);
+        }
+
+        setUploading(true);
+        try {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = async () => {
+                const base64Content = reader.result.split(',')[1];
+                const fileName = `${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
+                const path = `public/assets/news/${fileName}`;
+
+                const response = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token || prompt("Enter GitHub Token:")}`, // Fallback prompt
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: `Upload image: ${fileName}`,
+                        content: base64Content
+                    })
+                });
+
+                if (!response.ok) throw new Error('Failed to upload image. Check token permissions.');
+
+                const data = await response.json();
+                // We use the relative path for the website
+                const imageUrl = `/assets/news/${fileName}`;
+                setEditingItem(prev => ({ ...prev, image: imageUrl }));
+                alert("Image uploaded successfully!");
+            };
+        } catch (error) {
+            console.error(error);
+            alert(`Upload failed: ${error.message}`);
+        } finally {
+            setUploading(false);
+        }
+    };
+
     const executeGitHubAction = async () => {
         setStatusMsg('Processing...');
+        setUploading(true); // Reuse uploading state for general loading
         try {
             // 1. Get current file SHA
             const getResponse = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${FILE_PATH}`, {
@@ -112,15 +166,21 @@ const Admin = () => {
             if (!putResponse.ok) throw new Error('Failed to update GitHub');
 
             setStatusMsg('Success! Changes will appear in a few minutes.');
+            alert('Success! Changes will appear in a few minutes.'); // Explicit feedback
             setNews(newNewsList);
             setIsModalOpen(false);
             setShowTokenModal(false);
-            setToken(''); // Clear token for security
+            // Keep token for session? Or clear? User prefers "enter every time", but for upload convenience we might want to keep it briefly.
+            // Let's clear it to be safe as requested.
+            setToken('');
             setPendingAction(null);
 
         } catch (error) {
             console.error(error);
             setStatusMsg(`Error: ${error.message}`);
+            alert(`Error: ${error.message}`);
+        } finally {
+            setUploading(false);
         }
     };
 
@@ -209,14 +269,28 @@ const Admin = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium mb-1">Image URL (Optional)</label>
-                                    <input
-                                        type="text"
-                                        placeholder="/assets/news/..."
-                                        className="w-full bg-muted/50 border border-border rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none"
-                                        value={editingItem.image || ''}
-                                        onChange={e => setEditingItem({ ...editingItem, image: e.target.value })}
-                                    />
+                                    <label className="block text-sm font-medium mb-1">Image</label>
+                                    <div className="flex gap-2">
+                                        <input
+                                            type="text"
+                                            placeholder="/assets/news/..."
+                                            className="flex-grow bg-muted/50 border border-border rounded-lg p-2 focus:ring-2 focus:ring-primary outline-none"
+                                            value={editingItem.image || ''}
+                                            onChange={e => setEditingItem({ ...editingItem, image: e.target.value })}
+                                        />
+                                        <label className="cursor-pointer btn-secondary flex items-center gap-2 px-3 py-2 rounded-lg border border-border hover:bg-muted transition-colors">
+                                            <Upload size={18} />
+                                            <span className="text-sm">Upload</span>
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                className="hidden"
+                                                onChange={handleImageUpload}
+                                                disabled={uploading}
+                                            />
+                                        </label>
+                                    </div>
+                                    {uploading && <p className="text-xs text-primary mt-1">Uploading image...</p>}
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium mb-1">Summary</label>
@@ -245,9 +319,9 @@ const Admin = () => {
                     </div>
                 )}
 
-                {/* Token Modal */}
+                {/* Token Modal - Increased z-index */}
                 {showTokenModal && (
-                    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
                         <div className="bg-background border border-border rounded-xl w-full max-w-md shadow-2xl p-6">
                             <div className="flex items-center gap-3 mb-4 text-primary">
                                 <Lock size={24} />
@@ -267,9 +341,10 @@ const Admin = () => {
                                 <button onClick={() => { setShowTokenModal(false); setToken(''); }} className="px-4 py-2 rounded-lg hover:bg-muted transition-colors">Cancel</button>
                                 <button
                                     onClick={executeGitHubAction}
-                                    disabled={!token}
-                                    className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                                    disabled={!token || uploading}
+                                    className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                                 >
+                                    {uploading && <Loader2 className="animate-spin h-4 w-4" />}
                                     Confirm & {pendingAction?.type === 'save' ? 'Save' : 'Delete'}
                                 </button>
                             </div>
