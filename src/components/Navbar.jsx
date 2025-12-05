@@ -78,16 +78,22 @@ const Navbar = ({ theme, toggleTheme }) => {
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
                         {navLinks.map((link) => (
-                            <div key={link.name} className="relative group">
+                            <div
+                                key={link.name}
+                                className="relative group"
+                                onMouseEnter={() => link.subItems && setActiveDropdown(link.name)}
+                                onMouseLeave={() => link.subItems && setActiveDropdown(null)}
+                            >
                                 {link.subItems ? (
                                     <button
+                                        onClick={() => toggleDropdown(link.name)}
                                         className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${location.pathname.startsWith(link.path)
                                             ? 'text-primary'
                                             : 'text-muted-foreground'
                                             }`}
                                     >
                                         {link.name}
-                                        <ChevronDown size={14} />
+                                        <ChevronDown size={14} className={`transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
                                     </button>
                                 ) : (
                                     <Link
@@ -103,12 +109,18 @@ const Navbar = ({ theme, toggleTheme }) => {
 
                                 {/* Dropdown Menu */}
                                 {link.subItems && (
-                                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                    <div
+                                        className={`absolute left-1/2 -translate-x-1/2 top-full pt-4 transition-all duration-200 ${activeDropdown === link.name
+                                                ? 'opacity-100 visible translate-y-0'
+                                                : 'opacity-0 invisible -translate-y-2'
+                                            }`}
+                                    >
                                         <div className="glass rounded-xl p-2 min-w-[200px] shadow-xl border border-border bg-background/90 backdrop-blur-md">
                                             {link.subItems.map((subItem) => (
                                                 <Link
                                                     key={subItem.path}
                                                     to={subItem.path}
+                                                    onClick={() => setActiveDropdown(null)}
                                                     className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-lg transition-colors whitespace-nowrap"
                                                 >
                                                     {subItem.name}
