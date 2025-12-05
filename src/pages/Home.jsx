@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import Section from '../components/Section';
 import Card from '../components/Card';
-import { ArrowRight, BookOpen, Users, Award, Calendar } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Award, Calendar, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { contentData } from '../data/bk21Data';
-import newsData from '../data/news.json';
 
 const Home = () => {
+    const [newsData, setNewsData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchNews = async () => {
+            try {
+                // Add timestamp to prevent caching
+                const response = await fetch(`${import.meta.env.BASE_URL}data/news.json?t=${new Date().getTime()}`);
+                if (!response.ok) throw new Error('Failed to fetch news');
+                const data = await response.json();
+                // Sort by date descending
+                const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setNewsData(sortedData);
+            } catch (error) {
+                console.error('Error fetching news:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchNews();
+    }, []);
+
     const highlights = [
         {
             icon: <BookOpen className="text-primary" size={24} />,
@@ -26,7 +48,8 @@ const Home = () => {
         }
     ];
 
-    const recentNews = Array.isArray(newsData) ? newsData.slice(0, 3) : [];
+    // Show top 6 news items
+    const recentNews = newsData.slice(0, 6);
 
     return (
         <>
@@ -35,22 +58,9 @@ const Home = () => {
                 subtitle="Ewha Womans University BK21 FOUR Program dedicated to shaping the future of ethical and reliable Artificial Intelligence."
             />
 
+            {/* Latest News Section - Moved to Top */}
             <Section className="relative z-10 -mt-20">
-                <div className="grid gap-6 md:grid-cols-3">
-                    {highlights.map((item, index) => (
-                        <Card key={index} className="flex flex-col gap-4">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                                {item.icon}
-                            </div>
-                            <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                            <p className="text-muted-foreground">{item.description}</p>
-                        </Card>
-                    ))}
-                </div>
-            </Section>
-
-            <Section>
-                <div className="mb-12 flex items-end justify-between">
+                <div className="mb-8 flex items-end justify-between">
                     <div>
                         <h2 className="text-3xl font-bold text-white mb-2">Latest <span className="text-primary">News</span></h2>
                         <p className="text-muted-foreground">Updates from our research group</p>
@@ -60,50 +70,71 @@ const Home = () => {
                     </Link>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-3">
-                    {recentNews.map((news) => (
-                        <Card key={news.id} className="group flex flex-col h-full overflow-hidden hover:border-primary/50 transition-all p-0">
-                            {/* Image Container */}
-                            <div className="relative w-full aspect-video overflow-hidden bg-muted">
-                                {news.image ? (
-                                    <img
-                                        src={`${import.meta.env.BASE_URL}${news.image.replace(/^\//, '')}`}
-                                        alt={news.title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        onError={(e) => {
-                                            e.target.style.display = 'none';
-                                        }}
-                                    />
-                                ) : (
-                                    <div className="w-full h-full flex items-center justify-center bg-primary/5">
-                                        <span className="text-4xl">📰</span>
+                {loading ? (
+                    <div className="flex justify-center py-10">
+                        <Loader2 className="animate-spin text-primary" />
+                    </div>
+                ) : (
+                    <div className="grid gap-6 md:grid-cols-3">
+                        {recentNews.map((news) => (
+                            <Card key={news.id} className="group flex flex-col h-full overflow-hidden hover:border-primary/50 transition-all p-0">
+                                {/* Image Container */}
+                                <div className="relative w-full aspect-video overflow-hidden bg-muted">
+                                    {news.image ? (
+                                        <img
+                                            src={`${import.meta.env.BASE_URL}${news.image.replace(/^\//, '')}`}
+                                            alt={news.title}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            onError={(e) => {
+                                                e.target.style.display = 'none';
+                                            }}
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center bg-primary/5">
+                                            <span className="text-4xl">📰</span>
+                                        </div>
+                                    )}
+                                    <div className="absolute top-3 left-3">
+                                        <span className="inline-flex items-center gap-1 rounded-full bg-background/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-primary border border-primary/20 capitalize">
+                                            {news.category}
+                                        </span>
                                     </div>
-                                )}
-                                <div className="absolute top-3 left-3">
-                                    <span className="inline-flex items-center gap-1 rounded-full bg-background/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-primary border border-primary/20 capitalize">
-                                        {news.category}
-                                    </span>
                                 </div>
-                            </div>
 
-                            {/* Content */}
-                            <div className="p-5 flex flex-col flex-grow">
-                                <h3 className="mb-3 text-lg font-semibold text-white group-hover:text-primary transition-colors line-clamp-2">
-                                    {news.title}
-                                </h3>
-                                <div className="mt-auto flex items-center gap-2 text-xs text-muted-foreground">
-                                    <Calendar size={14} />
-                                    <span>{news.date}</span>
+                                {/* Content */}
+                                <div className="p-5 flex flex-col flex-grow">
+                                    <h3 className="mb-3 text-lg font-semibold text-white group-hover:text-primary transition-colors line-clamp-2">
+                                        {news.title}
+                                    </h3>
+                                    <div className="mt-auto flex items-center gap-2 text-xs text-muted-foreground">
+                                        <Calendar size={14} />
+                                        <span>{news.date}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </Card>
-                    ))}
-                </div>
+                            </Card>
+                        ))}
+                    </div>
+                )}
 
                 <div className="mt-8 md:hidden text-center">
                     <Link to="/news" className="inline-flex items-center gap-2 text-sm font-medium text-primary">
                         View All News <ArrowRight size={16} />
                     </Link>
+                </div>
+            </Section>
+
+            {/* Highlights Section - Moved Below News */}
+            <Section>
+                <div className="grid gap-6 md:grid-cols-3">
+                    {highlights.map((item, index) => (
+                        <Card key={index} className="flex flex-col gap-4 p-8 border-primary/20 bg-primary/5">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                                {item.icon}
+                            </div>
+                            <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                            <p className="text-muted-foreground">{item.description}</p>
+                        </Card>
+                    ))}
                 </div>
             </Section>
 
