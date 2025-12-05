@@ -58,7 +58,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             <div className={`container-custom mx-auto px-6`}>
                 <div
                     className={`relative flex items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${scrolled
-                        ? 'glass shadow-lg bg-background/80 border-border'
+                        ? 'glass shadow-lg bg-background/60 border-border'
                         : 'bg-background/10 backdrop-blur-sm border-white/5'
                         }`}
                 >
