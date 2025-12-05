@@ -131,9 +131,7 @@
 }
 
 /* Global Styles */
-:root {
-  color-scheme: dark;
-}
+:root {}
 
 body {
   background-color: var(--color-background);
