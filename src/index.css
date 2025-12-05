@@ -163,11 +163,13 @@ body {
 }
 
 /* Utilities */
-@utility glass {
+/* Standard CSS Class for Robustness */
+.glass {
   /* reference: nyangewha.github.io */
   /* Light Mode: ~10% opacity for true glass effect */
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Explicitly defining both standard and webkit filters */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -179,12 +181,12 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@utility glass-hover {
+.glass-hover {
   transition: all 0.3s ease;
+}
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .dark .glass-hover:hover {
