@@ -26,6 +26,7 @@
 
 .dark {
   /* Dark Mode */
+  color-scheme: dark;
   --color-background: 10 10 10;
   --color-foreground: 237 237 237;
 
