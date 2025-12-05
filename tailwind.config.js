@@ -12,8 +12,8 @@ export default {
           green: '#00462A',
           light: '#E8F5E9',
         },
-        background: "rgb(var(--color-background) / <alpha-value>)",
-        foreground: "rgb(var(--color-foreground) / <alpha-value>)",
+        background: "rgba(var(--color-background), <alpha-value>)",
+        foreground: "rgba(var(--color-foreground), <alpha-value>)",
         primary: {
           50: 'hsl(155, 100%, 95%)',
           100: 'hsl(155, 100%, 90%)',
