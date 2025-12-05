@@ -59,7 +59,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <div
                     className={`relative flex items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${scrolled
                         ? 'glass shadow-lg bg-background/80 border-border'
-                        : 'bg-transparent border-transparent'
+                        : 'bg-background/10 backdrop-blur-sm border-white/5'
                         }`}
                 >
                     {/* Logo */}
@@ -111,8 +111,8 @@ const Navbar = ({ theme, toggleTheme }) => {
                                 {link.subItems && (
                                     <div
                                         className={`absolute left-1/2 -translate-x-1/2 top-full pt-4 transition-all duration-200 ${activeDropdown === link.name
-                                                ? 'opacity-100 visible translate-y-0'
-                                                : 'opacity-0 invisible -translate-y-2'
+                                            ? 'opacity-100 visible translate-y-0'
+                                            : 'opacity-0 invisible -translate-y-2'
                                             }`}
                                     >
                                         <div className="glass rounded-xl p-2 min-w-[200px] shadow-xl border border-border bg-background/90 backdrop-blur-md">
@@ -208,7 +208,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 };
 
