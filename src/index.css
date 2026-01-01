@@ -43,8 +43,8 @@
   --color-border: #404040;
 
   /* Glassmorphism Dark */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(30, 30, 30, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
 
@@ -166,19 +166,21 @@ body {
 /* Standard CSS Class for Robustness */
 .glass {
   /* reference: nyangewha.github.io */
-  /* Light Mode: ~10% opacity for true glass effect */
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  /* Explicitly defining both standard and webkit filters */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* Using higher opacity for better visibility across browsers */
+  background: var(--glass-bg, rgba(255, 255, 255, 0.7));
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.2));
+  /* Explicitly defining both standard and webkit filters with saturation for vibrancy */
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  box-shadow: var(--glass-shadow, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  /* Hardware acceleration fix */
+  transform: translateZ(0);
 }
 
 .dark .glass {
-  /* Dark Mode: ~10% opacity black */
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--glass-bg, rgba(20, 20, 20, 0.7));
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .glass-hover {
